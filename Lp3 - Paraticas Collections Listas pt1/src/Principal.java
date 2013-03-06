@@ -25,24 +25,17 @@ public class Principal {
 		System.out.println("Tamanho total da Lista: " + listaFuncionario.size());
 		
 		
-		//5) Perguntar para a lista se o funcionário f2 se encontra na lista. 
-		if(listaFuncionario.contains(f2))
-			System.out.println("Funcionário F2 está na lista");
-		else
-			System.out.println("Funcionário F2 não está na lista");
+		//5) Perguntar para a lista se o funcionário f2 se encontra na lista. 		
+		localizarFuncionario(listaFuncionario, f2);		
 		
 		//6) Perguntar para a lista se o funcionário f3 se encontra na lista. 
-		if(listaFuncionario.contains(f3))
-			System.out.println("Funcionário F3 está na lista");
-		else
-			System.out.println("Funcionário F3 não está na lista");
+		localizarFuncionario(listaFuncionario, f3);
 		
 		//7) Perguntar para a lista a posição do funcionário f2 (método indexOf).
-		System.out.println("Posição do F2: " + listaFuncionario.indexOf(f2));
-		
-		
+		posicaoFuncionario(listaFuncionario, f2);
+				
 		//8) Perguntar para a lista a posição do funcionário f3. 
-		System.out.println("Posição do F3: " + listaFuncionario.indexOf(f3));
+		posicaoFuncionario(listaFuncionario, f3);
 		
 		//9) Remover o funcionário f2 da lista (método remove(E)). Imprima a lista na tela para confirmar. 
 		listaFuncionario.remove(f2);
@@ -53,26 +46,39 @@ public class Principal {
 		System.out.println(listaFuncionario);
 		
 		//11) Perguntar se a lista está vazia (método isEmpty). 
-		if(listaFuncionario.isEmpty())
-			System.out.println("Lista está vazia");
-		else
-			System.out.println("Lista não está vazia");
+		listaVazia(listaFuncionario);
 		
 		//12) Limpar a lista (método clear). 
 		listaFuncionario.clear();
 		
 		//13) Perguntar se a lista está vazia.
-		if(listaFuncionario.isEmpty())
+		listaVazia(listaFuncionario);
+		
+	}
+	
+	//Localiza funcionário através do Objeto 
+	private static void localizarFuncionario(ArrayList<Funcionario> listaFuncionario, Funcionario f) {
+		if (listaFuncionario.contains(f))
+			System.out.println("Funcionário " + f.getNome() + " está na lista");
+		else
+			System.out.println("Funcionário " + f.getNome() + " não está na lista");
+	}
+	
+	//Localiza funcionário e retorna a posição na lista;
+	private static void posicaoFuncionario(ArrayList<Funcionario> listaFuncionario,Funcionario f) {
+		if (listaFuncionario.indexOf(f) > 0) {
+			System.out.println("Posição do " + f.getNome() + " : " + listaFuncionario.indexOf(f)); 
+		} else
+			System.out.println("Funcionário não localizado.");
+	}
+	
+	//Verifica se a Lista está vazia;
+	private static void listaVazia(ArrayList<Funcionario> listaFuncionario) {
+		if (listaFuncionario.isEmpty())
 			System.out.println("Lista está vazia");
 		else
 			System.out.println("Lista não está vazia");
-		
-		/*f1.adicionarFuncionario(f1);
-		f2.adicionarFuncionario(f2);
-		f4.adicionarFuncionario(f4);
-		f5.adicionarFuncionario(f5);*/
-		
-		
-		
+
 	}
+	
 }
